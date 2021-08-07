@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import Task from 'components/Task'
+import Wave from 'components/Wave'
+import Galaxy from 'components/Galaxy/Galaxy'
 
 import './index.css'
 
 function App() {
   return (
-    <Task />
+    <Fragment>
+      <Wave />
+      <Galaxy />
+      <Task />
+    </Fragment>
   )
 }
 
