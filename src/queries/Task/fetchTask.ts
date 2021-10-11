@@ -1,0 +1,1 @@
+export const fetchTask = async () => await fetch("http://localhost:7000/task/").then(res => res.json())

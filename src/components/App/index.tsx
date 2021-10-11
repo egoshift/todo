@@ -9,8 +9,6 @@ import './index.css'
 function App() {
   return (
     <Fragment>
-      <Wave />
-      <Galaxy />
       <Task />
     </Fragment>
   )

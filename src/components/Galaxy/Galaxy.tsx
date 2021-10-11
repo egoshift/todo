@@ -6,6 +6,8 @@ const SPECK_AMOUNT = 1000
 
 function Galaxy(): JSX.Element {
   const canvasRef = useRef(null)
+  const [width, setWidth] = useState(window.innerWidth)
+  const [height, setHeight] = useState(window.innerHeight)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -35,9 +37,19 @@ function Galaxy(): JSX.Element {
     
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('resize', updateWindowSize)
+    return () => window.removeEventListener('resize', updateWindowSize)    
+  })
+
+  function updateWindowSize() {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+  }
+
   return (
     <Fragment>
-      <canvas className='galaxy-canvas' ref={canvasRef}></canvas>
+      <canvas className='galaxy-canvas' ref={canvasRef} style={{ width:'100%', height:'100%' }}></canvas>
     </Fragment>
   )
 }

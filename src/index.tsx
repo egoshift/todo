@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/App';
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import 'semantic-ui-css/semantic.min.css'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+const queryClient = new QueryClient()
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient} contextSharing={true}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
